@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart' as syspaths;
 
 class ImageInput extends StatefulWidget {
   final Function onSelectImage;
@@ -28,7 +30,16 @@ class _ImageInputState extends State<ImageInput> {
       _storedImage = File(imageFile.path);
     });
 
-    //widget.onSelectImage()
+    // Aqui pegamos a pasta do sistema onde são armazenados os arquivos
+    final appDir = await syspaths.getApplicationDocumentsDirectory();
+    // Aqui pegaos apenas o nome do arquivo de imagem
+    String fileName = path.basename(_storedImage.path);
+    // Vamos fazer uma cópia da imagem e gravar no diretório (appDir)
+    final savedImage = await _storedImage.copy('${appDir.path}/$fileName');
+
+    // Por meio deste método comunicamos com o formulário em places_form_screen
+    // Comunicação indireta. A direta seria pelo construtor da classe
+    widget.onSelectImage(savedImage);
   }
 
   @override
