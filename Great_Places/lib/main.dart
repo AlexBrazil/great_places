@@ -1,4 +1,4 @@
-import 'package:Great_Places/providers/greate_places.dart';
+import 'package:Great_Places/providers/great_places.dart';
 import 'package:Great_Places/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (ctx) => GreatePlaces(),
+      create: (ctx) => GreatPlaces(),
       child: MaterialApp(
-        title: 'Grate Places',
+        title: 'Great Places',
         theme: ThemeData(
           primarySwatch: Colors.indigo,
           accentColor: Colors.amber,

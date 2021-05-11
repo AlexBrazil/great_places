@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import '../models/place.dart';
 
-class GreatePlaces with ChangeNotifier {
+class GreatPlaces with ChangeNotifier {
   List<Place> _items = [];
 
   List<Place> get items {

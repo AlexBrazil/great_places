@@ -1,4 +1,4 @@
-import 'package:Great_Places/providers/greate_places.dart';
+import 'package:Great_Places/providers/great_places.dart';
 import 'package:Great_Places/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class PlacesListScreen extends StatelessWidget {
         ],
       ),
       body: Center(
-        child: Consumer<GreatePlaces>(
+        child: Consumer<GreatPlaces>(
           // Child em consumer é para quando builder não devolver nenhumdado
           child: Center(
             child: Text("Nenhum lugar cadastrado"),
