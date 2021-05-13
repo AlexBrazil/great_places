@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:Great_Places/utils/db_util.dart';
 import 'package:flutter/cupertino.dart';
 import '../models/place.dart';
 
@@ -27,6 +28,14 @@ class GreatPlaces with ChangeNotifier {
       location: null,
     );
     _items.add(newPlace);
+    DbUtil.insert(
+      'places',
+      {
+        'id': newPlace.id,
+        'title': newPlace.title,
+        'image': newPlace.image.path,
+      },
+    );
     notifyListeners();
   }
 }
