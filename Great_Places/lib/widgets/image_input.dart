@@ -23,6 +23,9 @@ class _ImageInputState extends State<ImageInput> {
       maxWidth: 600,
     );
 
+    print("_picker: $_picker");
+    print("imageFile: $imageFile");
+
     // Se o usuário retornar sem tirar foto
     if (imageFile == null) return;
 

@@ -18,6 +18,7 @@ class DbUtil {
     );
   }
 
+  // Insere um registro
   static Future<void> insert(String table, Map<String, Object> data) async {
     final db = await DbUtil.database();
     await db.insert(
@@ -26,5 +27,10 @@ class DbUtil {
       // Caso exista alguma duplicidade será subistituído
       conflictAlgorithm: sql.ConflictAlgorithm.replace,
     );
+  }
+
+  static Future<List<Map<String, dynamic>>> getData(String table) async {
+    final db = await DbUtil.database();
+    return db.query(table);
   }
 }

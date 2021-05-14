@@ -8,6 +8,21 @@ import '../models/place.dart';
 class GreatPlaces with ChangeNotifier {
   List<Place> _items = [];
 
+  Future<void> loadPlaces() async {
+    // Aqui receberemos uma lista de Map's com os dados de SQLite
+    final dataList = await DbUtil.getData('places');
+    // Aqui converteremos a lista de Map's em uma lista de Places
+    _items = dataList
+        .map((itemDeMap) => Place(
+              id: itemDeMap['id'],
+              title: itemDeMap['title'],
+              image: File(itemDeMap['image']),
+              location: null,
+            ))
+        .toList();
+    notifyListeners();
+  }
+
   List<Place> get items {
     return [..._items];
   }
