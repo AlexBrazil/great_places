@@ -5,9 +5,9 @@
 	<!--Inicio de minhas alterações -->
 	<!--Dependencies: Location -->
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Necessitamos suar sua lcalização.</string>
+	<string>Necessitamos usar sua lcalização.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Necessitamos suar sua lcalização.</string>
+	<string>Necessitamos usar sua lcalização.</string>
 	<!--Fim de minhas alterações -->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
