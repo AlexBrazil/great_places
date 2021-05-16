@@ -5,9 +5,12 @@
 	<!--Inicio de minhas alterações -->
 	<!--Dependencies: Location -->
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Necessitamos usar sua lcalização.</string>
+	<string>Necessitamos usar sua localização.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Necessitamos usar sua lcalização.</string>
+	<string>Necessitamos usar sua localização.</string>
+	<!--Dependencies: Google Maps -->
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
 	<!--Fim de minhas alterações -->
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
