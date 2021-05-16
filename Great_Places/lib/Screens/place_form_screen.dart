@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:Great_Places/providers/great_places.dart';
-import 'package:Great_Places/utils/location_input.dart';
+import 'package:Great_Places/widgets/location_input.dart';
 import 'package:Great_Places/widgets/image_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
