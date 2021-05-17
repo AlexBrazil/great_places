@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
   final PlaceLocation initialLocation;
+  final bool isReafyOnly;
 
   MapScreen({
     // Vamos usar como coornenadas padrão da sede da Google
@@ -12,12 +13,21 @@ class MapScreen extends StatefulWidget {
       latitude: 37.419857,
       longitude: -122.078827,
     ),
+    this.isReafyOnly = false,
   });
   @override
   _MapScreenState createState() => _MapScreenState();
 }
 
 class _MapScreenState extends State<MapScreen> {
+  LatLng _pickedPosition;
+
+  void _selectPosition(LatLng position) {
+    setState(() {
+      _pickedPosition = position;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +42,16 @@ class _MapScreenState extends State<MapScreen> {
           ),
           zoom: 13.0,
         ),
+        onTap: widget.isReafyOnly ? null : _selectPosition,
+        // Aqui usamos uma coleção do tipo SET, a qual não aceita repetição
+        markers: _pickedPosition == null
+            ? null
+            : {
+                Marker(
+                  markerId: MarkerId('p1'),
+                  position: _pickedPosition,
+                ),
+              },
       ),
     );
   }
