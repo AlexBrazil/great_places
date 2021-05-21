@@ -33,6 +33,21 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Selecione..."),
+        actions: [
+          if (!widget.isReafyOnly)
+            IconButton(
+              icon: Icon(Icons.check),
+              // Se _pickedPosition for nullo, ou seja, o usuário não escolheu nenhuma posição no mapa
+
+              onPressed: _pickedPosition == null
+                  ? null
+                  : () {
+                      // Ao fechar com pop, o objeto _pickedPosition (Latitude e longitude)
+                      // é passado para a outra tela, ou seja, a localização selecionada
+                      Navigator.of(context).pop(_pickedPosition);
+                    },
+            )
+        ],
       ),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(

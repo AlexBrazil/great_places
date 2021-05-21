@@ -1,6 +1,7 @@
 import 'package:Great_Places/Screens/map_screen.dart';
 import 'package:Great_Places/utils/location_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class LocationInput extends StatefulWidget {
@@ -26,11 +27,13 @@ class _LocationInputState extends State<LocationInput> {
 
   Future<void> _selectOnMap() async {
     // Quando fazemosum pop, conseguimos pegar o objeto retornado
-    final selectedLocation = await Navigator.of(context).push(
+    // O objeto retornado é do tipo LatLng e o Dart não consegue inferir,
+    // temos que fazer isso
+    final LatLng selectedPosition = await Navigator.of(context).push(
       // context é um objeto acessível neste contexto
       // Criando uma rota
       // Se não passarmos os parâmetros de MapScreen ele usaurá os valores
-      // padrão do construtor - coordenadas de Pelotas
+      // padrão do construtor
       MaterialPageRoute(
         // Tira a seta e coloca o "X" para fechar a página
         fullscreenDialog: true,
@@ -38,7 +41,10 @@ class _LocationInputState extends State<LocationInput> {
       ),
     );
 
-    if (selectedLocation == null) return;
+    if (selectedPosition == null) return;
+
+    print(selectedPosition.latitude);
+    print(selectedPosition.longitude);
   }
 
   @override
