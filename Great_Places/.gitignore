@@ -42,3 +42,6 @@ app.*.map.json
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
+# Minhas inserções
+Great_Places\lib\utils\location_utils.dart
