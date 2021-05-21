@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = 'AIzaSyAlVTAilJrQDYQFJQ-A1b2CWCwStWUnuFw';
+const GOOGLE_API_KEY = 'teste';
 
 class LocationUtil {
   static String generateLocationPreviewImage({
